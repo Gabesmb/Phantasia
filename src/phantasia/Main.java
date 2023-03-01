@@ -29,6 +29,8 @@ public class Main extends Application {
         Scene sc = new Scene(root);
         stage.setScene(sc);
         
+        stage.setResizable(false);
+        
         RouteManager.init(database, stage);
         
         stage.show();

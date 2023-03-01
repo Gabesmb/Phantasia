@@ -252,6 +252,11 @@ INSERT INTO Aluguel (id_fantasia, id_cliente, data_inicio, data_fim, status_alug
 #SELECT * FROM Aluguel;
 #SELECT * From DBAdmin;
 
+INSERT INTO DBAdmin (username_admin, senha_admin, allow_insert, allow_delete, allow_update) VALUES ('PhantasiaAdmin', 'Phantasia2.0', true, true, true);
+INSERT INTO Cliente (username_cliente, senha_cliente) VALUES ('PhantasiaClient', 'Phantasia2.0');
+
+SELECT * FROM DBAdmin;
+
 #SELECT Fantasia.nome_fantasia, Categoria.nome_categoria FROM Fantasia, Categoria, Fantasia_Categoria WHERE Fantasia_Categoria.id_fantasia = Fantasia.id_fantasia AND Fantasia_Categoria.id_categoria = Categoria.id_categoria;
 
 #SELECT Cliente.nome_cliente, Fantasia.nome_fantasia, Aluguel.data_inicio, Aluguel.data_fim, Aluguel.status_aluguel FROM Cliente, Fantasia, Aluguel WHERE Aluguel.id_cliente = Cliente.id_cliente AND Aluguel.id_fantasia = Fantasia.id_fantasia
