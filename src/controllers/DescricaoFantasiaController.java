@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -29,7 +31,12 @@ public class DescricaoFantasiaController implements Initializable {
     private Label labelUsuario;
 
     @FXML
+    private Label labelNome;    
+    
+    @FXML
     private VBox vboxCategorias;    
+    
+    private Fantasia fantasia;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -41,12 +48,30 @@ public class DescricaoFantasiaController implements Initializable {
         RouteManager.get().setScene("Busca");
     }
     
+    @FXML
+    public void alugar(){
+        if(fantasia.isDisponivel()){
+            RouteManager.get().prepareScene("Aluguel");
+            AluguelController controller = RouteManager.get().getPreparedLoader().getController();
+            controller.setData(fantasia);
+            RouteManager.get().setPreparedScene();
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Fantasia indisponível!");
+            alert.setHeaderText("Não há fantasias desse modelo para aluguel.");
+            alert.setContentText("");
+            alert.showAndWait();            
+        }
+    }
+    
     public void setValues(Fantasia fantasia){
+        this.fantasia = fantasia;
         imageImagem.setImage(
                 new Image(getClass().getResourceAsStream(
                         fantasia.getImageSource())));
         labelUsuario.setText(RouteManager.get().getLoggedUser().getUsername());
-        setDisponivel(fantasia.isDisponivel());        
+        setDisponivel(fantasia.isDisponivel());
+        labelNome.setText(fantasia.getNome());
     }
     
     private void setDisponivel(boolean disponivel){
@@ -78,4 +103,11 @@ public class DescricaoFantasiaController implements Initializable {
             Logger.getLogger(DescricaoFantasiaController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    @FXML
+    public void logout(ActionEvent event) {
+        RouteManager.get().logout();
+        RouteManager.get().setScene("Login");
+    }
+    
 }

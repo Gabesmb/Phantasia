@@ -102,6 +102,7 @@ public class MySQLConnection {
      * e não a quantidade de colunas modificadas.
      */    
     public int update(String query){
+        System.out.println(query);
         try (Statement statement = connect.createStatement()) {
             int matches = statement.executeUpdate(query);
             return matches;

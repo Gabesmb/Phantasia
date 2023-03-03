@@ -39,6 +39,7 @@ public class RouteManager{
             preparedLoader = new FXMLLoader();
             preparedLoader.setLocation(getClass().getResource("/views/" + scene + ".fxml"));
             preparedScene = new Scene(preparedLoader.load());
+            System.out.println(preparedLoader.getController().getClass().getName());
         } catch (IOException ex) {
             Logger.getLogger(RouteManager.class.getName()).log(Level.SEVERE, null, ex);
         }

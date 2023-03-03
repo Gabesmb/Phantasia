@@ -85,4 +85,9 @@ public class BuscaController implements Initializable {
         }                
     }   
     
+    @FXML
+    public void logout(ActionEvent event) {
+        RouteManager.get().logout();
+        RouteManager.get().setScene("Login");
+    }    
 }
