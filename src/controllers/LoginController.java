@@ -96,7 +96,7 @@ public class LoginController{
             if(senha.equals(passwordString)){
                 //TODO (AugustNinelie): trocar para a tela de busca de fantasia.
                 RouteManager.get().logAdmin(username);
-                RouteManager.get().setScene("Busca");
+                RouteManager.get().setScene("BuscaAdmin");
             } else {
                 showLoginFailAlert();
             }

@@ -29,19 +29,27 @@ public class ListaFantasiasController implements Initializable {
 
     }    
     
-    public void setFantasias(ResultSet set){
+    public void setFantasias(ResultSet set, boolean admin){
         try {
             do {
                 FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("/views/ItemFantasia.fxml"));
+                if(admin){
+                    loader.setLocation(getClass().getResource("/views/ItemFantasiaAdmin.fxml"));
+                } else {                    
+                    loader.setLocation(getClass().getResource("/views/ItemFantasia.fxml"));
+                }
                 
                 HBox box = loader.load();
                 
-                ItemFantasiaController controller = loader.getController();
-                //System.out.println(controller == null);
-                
-                
-                controller.setData(fillFantasia(set));
+                if (admin) {
+                    ItemFantasiaAdminController controller = loader.getController();                    
+                    
+                    controller.setData(fillFantasia(set));                    
+                } else {
+                    ItemFantasiaController controller = loader.getController();                    
+                    
+                    controller.setData(fillFantasia(set));
+                }
                 vboxLista.getChildren().add(box);
                         
             } while (set.next());

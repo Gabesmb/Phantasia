@@ -20,7 +20,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 import model.Admin;
 
-public class BuscaController implements Initializable {
+public class BuscaAdminController implements Initializable {
 
     @FXML
     private Button buttonPesquisa;
@@ -54,7 +54,7 @@ public class BuscaController implements Initializable {
                 listaController.setFantasias(results, RouteManager.get().getLoggedUser() instanceof Admin);
             }
         } catch (SQLException | IOException ex) {
-            Logger.getLogger(BuscaController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BuscaAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }    
@@ -82,7 +82,7 @@ public class BuscaController implements Initializable {
                 listaController.setFantasias(results, RouteManager.get().getLoggedUser() instanceof Admin);
             }
         } catch (SQLException | IOException ex) {
-            Logger.getLogger(BuscaController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(BuscaAdminController.class.getName()).log(Level.SEVERE, null, ex);
         }                
     }   
     
@@ -90,5 +90,10 @@ public class BuscaController implements Initializable {
     public void logout(ActionEvent event) {
         RouteManager.get().logout();
         RouteManager.get().setScene("Login");
+    }    
+    
+    @FXML
+    public void adicionar(ActionEvent event) {
+        RouteManager.get().setScene("Adicionar");
     }    
 }

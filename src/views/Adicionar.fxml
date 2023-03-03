@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.RadioMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.AdicionarController">
+   <stylesheets>
+      <URL value="@/style/busca.css" />
+   </stylesheets>
+   <children>
+      <VBox alignment="CENTER" layoutX="17.0" layoutY="33.0" prefHeight="600.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+               <children>
+                  <Label text="Phantasia">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Pane prefHeight="100.0" prefWidth="301.0" HBox.hgrow="ALWAYS" />
+                  <VBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="138.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Label fx:id="labelUsuario" text="Usuário Aleatório">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Hyperlink onAction="#logout" text="logout" />
+                     </children>
+                     <padding>
+                        <Insets top="25.0" />
+                     </padding>
+                  </VBox>
+                  <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../img/user_icon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets left="50.0" right="50.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <VBox spacing="20.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" spacing="10.0">
+                           <children>
+                              <Label text="Adicionar fantasia">
+                                 <font>
+                                    <Font size="24.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox spacing="10.0">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" spacing="25.0">
+                                 <children>
+                                    <Label text="Nome:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="textNome" promptText="Nome" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" spacing="25.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="81.0" text="Quantidade:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="textQuantidade" prefHeight="25.0" prefWidth="100.0" promptText="Quantidade" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" spacing="25.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="81.0" text="Tamanho:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <MenuButton mnemonicParsing="false" text="Tamanho">
+                                      <items>
+                                          <RadioMenuItem fx:id="menuItemPP" mnemonicParsing="false" text="PP">
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="tamanho" />
+                                             </toggleGroup>
+                                          </RadioMenuItem>
+                                          <RadioMenuItem fx:id="menuItemP" mnemonicParsing="false" selected="true" text="P" toggleGroup="$tamanho" />
+                                          <RadioMenuItem fx:id="menuItemM" mnemonicParsing="false" text="M" toggleGroup="$tamanho" />
+                                          <RadioMenuItem fx:id="menuItemG" mnemonicParsing="false" text="G" toggleGroup="$tamanho" />
+                                          <RadioMenuItem fx:id="menuItemGG" mnemonicParsing="false" text="GG" toggleGroup="$tamanho" />
+                                          <RadioMenuItem fx:id="menuItemXG" mnemonicParsing="false" text="XG" toggleGroup="$tamanho" />
+                                      </items>
+                                    </MenuButton>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" spacing="25.0">
+                                 <children>
+                                    <Label prefHeight="20.0" prefWidth="122.0" text="Valor do aluguel:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="textAluguel" prefHeight="25.0" prefWidth="254.0" promptText="Valor do Aluguel" HBox.hgrow="ALWAYS" />
+                                 </children>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets right="200.0" />
+                           </padding>
+                        </VBox>
+                        <HBox alignment="CENTER" spacing="100.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#voltar" prefHeight="40.0" prefWidth="100.0" text="Voltar">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                              </Button>
+                              <Button mnemonicParsing="false" onAction="#adicionar" prefHeight="40.0" prefWidth="100.0" text="Adicionar" />
+                           </children>
+                        </HBox>
+                     </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
+                     <padding>
+                        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

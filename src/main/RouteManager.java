@@ -63,6 +63,7 @@ public class RouteManager{
     }
     
     public void setScene(String scene){
+        System.out.println(scene);
         try {
             Parent root = FXMLLoader.load(getClass().getResource("/views/"
                     + scene + ".fxml"));

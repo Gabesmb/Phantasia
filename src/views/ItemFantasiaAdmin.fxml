@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox alignment="CENTER" prefHeight="70.0" prefWidth="700.0" spacing="20.0" styleClass="hover" stylesheets="@../style/itemfantasia.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemFantasiaController">
+<HBox alignment="CENTER" prefHeight="70.0" prefWidth="700.0" spacing="20.0" styleClass="hover" stylesheets="@../style/itemfantasia.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemFantasiaAdminController">
    <children>
       <ImageView fx:id="imgFantasia" fitHeight="100.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="labelNome" prefHeight="27.0" prefWidth="360.0" text="Nome da Fantasia">
@@ -18,16 +18,17 @@
          </font>
       </Label>
       <Pane prefHeight="70.0" prefWidth="60.0" HBox.hgrow="ALWAYS" />
-      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="215.0">
+      <VBox alignment="CENTER" prefHeight="70.0" prefWidth="149.0">
          <children>
             <Label fx:id="labelDisponivel" text="Disponível" textFill="#33ff33">
                <font>
-                  <Font size="18.0" />
+                  <Font size="14.0" />
                </font>
             </Label>
          </children>
       </VBox>
-      <Button fx:id="buttonVisualizar" mnemonicParsing="false" onAction="#visualizar" prefHeight="35.0" prefWidth="150.0" text="Visualizar" />
+      <Button disable="true" mnemonicParsing="false" onAction="#editar" prefHeight="35.0" prefWidth="150.0" text="Editar" HBox.hgrow="ALWAYS" />
+      <Button mnemonicParsing="false" onAction="#excluir" prefHeight="35.0" prefWidth="150.0" text="Excluir" HBox.hgrow="ALWAYS" />
    </children>
    <padding>
       <Insets right="20.0" />
