@@ -1,4 +1,4 @@
-package phantasia.fxml.controllers;
+package controllers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,8 +9,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import phantasia.RouteManager;
-import phantasia.database.MySQLConnection;
+import main.RouteManager;
+import database.MySQLConnection;
 
 public class CadastroController{    
 

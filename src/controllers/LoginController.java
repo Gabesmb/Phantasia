@@ -1,4 +1,4 @@
-package phantasia.fxml.controllers;
+package controllers;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,8 +10,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import phantasia.RouteManager;
-import phantasia.database.MySQLConnection;
+import main.RouteManager;
+import database.MySQLConnection;
 
 public class LoginController{
     
@@ -78,7 +78,9 @@ public class LoginController{
             if(senha.equals(passwordString)){
                 //TODO (AugustNinelie): trocar para a tela de busca de fantasia.
                 RouteManager.get().logClient(username);
-                
+                RouteManager.get().setScene("Busca");
+            } else {
+                showLoginFailAlert();
             }
         } else if (loginSource.equals("DBAdmin")){
             password = database.query("select senha_admin from DBAdmin where username_admin = " + "'" + username + "'");
@@ -94,7 +96,9 @@ public class LoginController{
             if(senha.equals(passwordString)){
                 //TODO (AugustNinelie): trocar para a tela de busca de fantasia.
                 RouteManager.get().logAdmin(username);
-                
+                RouteManager.get().setScene("Busca");
+            } else {
+                showLoginFailAlert();
             }
             
         } else {

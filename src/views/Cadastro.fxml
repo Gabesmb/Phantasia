@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.CadastroController">
+   <children>
+      <VBox alignment="CENTER" layoutX="31.0" layoutY="47.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="CENTER" prefHeight="300.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Label text="Phantasia" textAlignment="CENTER">
+                     <font>
+                        <Font name="Lucida Console" size="36.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="30.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="textUsername" prefHeight="45.0" prefWidth="285.0" promptText="Username" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </TextField>
+                        <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <PasswordField fx:id="passFieldSenha" prefHeight="45.0" prefWidth="285.0" promptText="Senha" HBox.hgrow="ALWAYS">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </PasswordField>
+                        <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="*">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </HBox>
+                  <TextField fx:id="textEmail" prefHeight="45.0" prefWidth="285.0" promptText="Email">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="11.0" />
+                     </VBox.margin>
+                  </TextField>
+                  <TextField fx:id="textNome" prefHeight="45.0" prefWidth="285.0" promptText="Nome">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="11.0" />
+                     </VBox.margin>
+                  </TextField>
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="400.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <Button fx:id="buttonCadastrar" mnemonicParsing="false" onAction="#onButtonCadastroAction" prefHeight="68.0" prefWidth="243.0" text="Cadastrar">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Hyperlink fx:id="linkLogin" onAction="#onLinkLoginAction" prefHeight="24.0" prefWidth="175.0" text="Já tem uma conta? faça o login" />
+               </children>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" />
+         </children>
+         <padding>
+            <Insets left="200.0" right="200.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

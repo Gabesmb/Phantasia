@@ -1,4 +1,4 @@
-package phantasia.database;
+package database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -51,8 +51,9 @@ public class MySQLConnection {
         
         try {
             connect = DriverManager.getConnection(
-                    "jdbc:mysql://localhost/" + database + "?user=" + user 
-                            + "&password=" + password
+                    "jdbc:mysql://localhost/" + database + "?useUnicode=yes"
+                            + "&characterEncoding=UTF-8&user=" 
+                            + user + "&password=" + password
             );
         } catch (SQLException ex) {
             Logger.getLogger(MySQLConnection.class.getName()).log(Level.SEVERE, null, ex);
@@ -72,6 +73,7 @@ public class MySQLConnection {
      * @return um {@link ResultSet ResultSet} com o resultado da busca.
      */
     public ResultSet query(String query){
+        System.out.println(query);
         try {
             Statement statement = connect.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
@@ -159,7 +161,7 @@ public class MySQLConnection {
                         + "id_fantasia=" + idFantasia);
             ResultSet qtdAlugada = 
                 query("select count(*) from Aluguel where "
-                        + "status_aluguel='ativo'")) {            
+                        + "status_aluguel='ativo' AND id_fantasia = " + idFantasia)) {            
             int qtdDisponivel = qtdFantasia.getInt(1) - qtdAlugada.getInt(1);
             qtdFantasia.close();
             qtdAlugada.close();
@@ -169,6 +171,33 @@ public class MySQLConnection {
             return 0;
         }
     }
+
+    /**
+     * <p>Determina a quantidade de unidades da fantasia com nome na
+     * entrada com base no número de aluguéis com status 'ativo' relacionado
+     * à fantasia em questão.</p>
+     * @param nomeFantasia o nome da fantasia no banco.
+     * @return a quantidade de unidades disponíveis. Pode devolver um valor
+     * negativo, o que indicaria inconsistência de dados no banco.
+     */
+    public int getQuantidadeDisponivel(String nomeFantasia){
+        try (ResultSet qtdFantasia = 
+                query("select quantidade from Fantasia where "
+                        + "nome_fantasia= '" + nomeFantasia + "'");
+            ResultSet qtdAlugada = 
+                query("select count(*) from Aluguel where "
+                        + "status_aluguel='ativo' AND id_fantasia = " 
+                        + query("select id_fantasia from Fantasia where "
+                                + "nome_fantasia = '" + nomeFantasia + "'").
+                                getInt("id_fantasia"))) {            
+            int qtdDisponivel = qtdFantasia.getInt(1) - qtdAlugada.getInt(1);
+            return qtdDisponivel;
+        } catch (SQLException ex) {
+            Logger.getLogger(MySQLConnection.class.getName()).log(Level.SEVERE, null, ex);
+            return 0;
+        }
+    }
+
     
     /**
      * <p>Insere linhas com <strong>todos os atributos</strong> da tabela especificada.</p>

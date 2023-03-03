@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" prefHeight="70.0" prefWidth="700.0" spacing="20.0" styleClass="hover" stylesheets="@../style/itemfantasia.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.ItemFantasiaController">
+   <children>
+      <ImageView fx:id="imgFantasia" fitHeight="100.0" fitWidth="70.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../img/Capitão%20América.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="labelNome" prefHeight="27.0" prefWidth="360.0" text="Nome da Fantasia">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Pane prefHeight="70.0" prefWidth="60.0" HBox.hgrow="ALWAYS" />
+      <VBox alignment="CENTER" prefHeight="100.0" prefWidth="215.0">
+         <children>
+            <Label fx:id="labelDisponivel" text="Disponível" textFill="#33ff33">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Button fx:id="buttonVisualizar" mnemonicParsing="false" onAction="#visualizar" prefHeight="35.0" prefWidth="150.0" text="Visualizar" />
+   </children>
+   <padding>
+      <Insets right="20.0" />
+   </padding>
+</HBox>
