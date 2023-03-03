@@ -2,4 +2,4 @@
 Projeto loja de aluguel de fantasia para disciplina Engenharia de Software II.
 
 Modelagem do Banco de Dados:
-![image](https://user-images.githubusercontent.com/68856854/217975960-354cccd8-3280-4918-b5b3-30ca7dcc1951.png)
+![image](![WhatsApp Image 2023-03-02 at 22 56 17 (1)](https://user-images.githubusercontent.com/87500899/222613553-ad476561-d5c3-433f-9be1-b96663c5967d.jpeg))
